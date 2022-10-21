@@ -1,0 +1,50 @@
+.header {
+    background-color: grey;
+    height: 100px;
+    width: 100%;
+}
+
+.contain_lign {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.contain-center {
+    display: flex;
+}
+
+.header_connect {
+    padding-right: 30px;
+}
+
+.logo {
+    height: 60px;
+    width: 150px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: flex-start;
+    padding-left: 30px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.link:hover {
+    color: rgb(74, 73, 73);
+}
+
+.link_position {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.connect_position {
+    display: flex;
+    justify-content: flex-end;
+}

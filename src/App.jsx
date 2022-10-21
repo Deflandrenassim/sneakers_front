@@ -5,16 +5,20 @@ import Sneakers from './container/Sneakers';
 import Sneaker from './component/Sneaker';
 import Inscription from './container/Connect/Inscription';
 import Login from './container/Connect/Login';
+import { Header } from './component/header/Header';
 
 function App() {
   return (
     <div>
+
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route exact path="/comment/:id" element={<Sneaker />} />
           <Route exact path="/" element={<Sneakers />} />
           <Route exact path="/inscription" element={<Inscription />} />
           <Route exact path="/login" element={<Login />} />
+
         </Routes>
       </BrowserRouter>
     </div>
