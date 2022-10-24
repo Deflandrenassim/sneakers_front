@@ -19,7 +19,6 @@ export default function Sneakers() {
     axios.get('http://localhost:8080/sneakers/')
       .then((response) => {
         setComment(response.data);
-        console.log(response.data);
       });
   }, []);
 
