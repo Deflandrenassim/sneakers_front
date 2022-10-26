@@ -10,18 +10,20 @@ import { PageHome } from './container/Page/PageHome';
 
 function App() {
   return (
-    <div>
-
+    <div className="app">
       <BrowserRouter>
         <Header />
+      <div className='container'>
+
         <Routes>
           <Route exact path="/comment/:id" element={<Sneaker />} />
           <Route exact path="/sneakers" element={<PageSneakers />} />
           <Route exact path="/" element={<PageHome />} />
           <Route exact path="/inscription" element={<Inscription />} />
           <Route exact path="/login" element={<Login />} />
-
         </Routes>
+        
+      </div>
       </BrowserRouter>
     </div>
   );
