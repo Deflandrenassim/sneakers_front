@@ -8,7 +8,6 @@ import {
 } from '../component/cardSneaker/CardSneaker';
 
 export default function Sneakers() {
-  
   const [marque, setMarque] = useState();
   const [name, setName] = useState();
   const [size, setSize] = useState();
@@ -54,8 +53,8 @@ export default function Sneakers() {
     <div className="App">
 
       <div className="container_card_sneakers">
-        {comment.map((commentaire, key) => (
-          <CardSneaker key={key}>
+        {comment.map((commentaire) => (
+          <CardSneaker key={commentaire.id}>
             <Link to={`/comment/${commentaire.id}`}>
               <PictureSneaker src={commentaire.picture} />
               <NameSneaker>{commentaire.name}</NameSneaker>

@@ -1,25 +1,27 @@
 import React from 'react';
 import './CardSneaker.css';
 
-export function CardSneaker({ children, key }) {
+export function CardSneaker({ children }) {
   return (
-    <div className="card_sneaker" key={key}>
+    <div className="card_sneaker">
       {children}
     </div>
   );
 }
-export function PictureSneaker({children ,  src }) {
+export function PictureSneaker({ src }) {
   return (
-    <img className="picture_sneaker" src={src} alt="sneaker">
-      {children}
-    </img> 
+    <img className="picture_sneaker" src={src} alt="sneaker" />
 
   );
 }
 export function AlignInfoSneaker({ children }) {
   return (
-    <div className="align_info"> {children} </div> 
-  )
+    <div className="align_info">
+      {' '}
+      {children}
+      {' '}
+    </div>
+  );
 }
 
 export function NameSneaker({ children }) {

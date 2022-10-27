@@ -1,11 +1,11 @@
-module.exports = {
+{
     "env": {
         "browser": true,
         "es2021": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "airbnb"
     ],
     "overrides": [
     ],
@@ -17,8 +17,8 @@ module.exports = {
         "react"
     ],
     "rules": {
-        'jsx-a11y/control-has-associated-label': 'off',
-        'react/prop-types': 'off',
-        'react/no-array-index-key': 'off',
+        "linebreak-style":"off",
+        "react/prop-types": "off",
+        "no-shadow": "off"
     }
 }
