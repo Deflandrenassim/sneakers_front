@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Sneaker.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Textfield } from '../../component/textfield/Textfield';
@@ -15,6 +16,7 @@ function Sneaker() {
   useEffect(() => {
     axios.get(`http://localhost:8080/sneakers/${id}`)
       .then((response) => {
+        console.log(response);
         setNewName(response.data.name);
         setPicture(response.data.picture);
       });
@@ -41,9 +43,11 @@ function Sneaker() {
   };
 
   return (
-    <div className="sneaker_header">
-      <Picture pictureComment="pictureComment" source={picture} />
-      <ContainerInfo />
+    <div className="sneaker">
+      <div className="sneaker_header">
+        <Picture pictureComment="pictureComment" source={picture} />
+        <ContainerInfo />
+      </div>
       <span> Name : </span>
       <Textfield value={newName} onChange={UpdateSend} />
       <Button onClick={sendUpdateComment}> Envoyer </Button>

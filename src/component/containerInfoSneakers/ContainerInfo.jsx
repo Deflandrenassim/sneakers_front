@@ -3,6 +3,6 @@ import './ContainerInfo.css';
 
 export default function ContainerInfo() {
   return (
-    <div> tessssst </div>
+    <div className="container-info"> tessssst </div>
   );
 }
