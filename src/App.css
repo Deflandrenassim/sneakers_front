@@ -1,4 +1,12 @@
 .container{
   padding-right: 20px;
   padding-left: 20px;
+  user-select: none;
+}
+.contenu-pos-footer{
+  min-height: 100%;
+  position: relative;
+}
+html, body {
+  height: 100%;
 }

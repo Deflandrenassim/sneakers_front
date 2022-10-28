@@ -7,18 +7,28 @@ import {
 export default function Footer() {
   return (
     <div className="footer">
-      <Logo />
+      <FooterLogo />
+      <FooterInformation />
     </div>
   );
 }
 
-export function Logo() {
+export function FooterLogo() {
   return (
-    <div className="logo">
-      <FaTwitter className="img" />
-      <FaGithub />
-      <FaInstagram />
-      <FaYoutube />
+    <div className="footer_logo">
+      <FaTwitter className="logos youtube" />
+      <FaGithub className="logos" />
+      <FaInstagram className="logos" />
+      <FaYoutube className="logos" />
+    </div>
+  );
+}
+export function FooterInformation() {
+  return (
+    <div className="footer_information">
+      <span className="info"> Condition dutilisation</span>
+      <span className="info"> Mentions  Légales</span>
+      <span className="info"> Paramètres des cookies</span>
     </div>
   );
 }

@@ -6,10 +6,10 @@ import {
   CardSneaker, PictureSneaker, NameSneaker, PriceSneaker, AlignInfoSneaker,
 } from '../../component/cardSneaker/CardSneaker';
 import {
-  SliderHeader, SliderTitle, SliderIcon, SliderAlign, SliderSizeForSlide,
+  SliderHeader, SliderTitle, SliderAlign, SliderSizeForSlide, SliderIcon,
 } from './SliderHeader';
 
-function MarqueSneakersSlider({ marque }) {
+function MarqueSneakersSlider({ marque, title }) {
   const [sneaker, setSneaker] = useState([]);
   const [, setLengthPicture] = useState([]);
   const scrollContainer = useRef();
@@ -17,7 +17,6 @@ function MarqueSneakersSlider({ marque }) {
   useEffect(() => {
     axios.get(`http://localhost:8080/sneakers?marque=${marque}`)
       .then((response) => {
-        console.log(response.data);
         setSneaker(response.data);
         setLengthPicture(response.data.map((pictures) => pictures.picture));
       });
@@ -42,14 +41,16 @@ function MarqueSneakersSlider({ marque }) {
       <SliderHeader>
         <SliderAlign>
           <SliderTitle>
-            Adidas
+            {title }
           </SliderTitle>
-          <SliderIcon />
+          <SliderIcon>
+            <FaArrowAltCircleLeft className="prev " onClick={prevSlide} />
+            <FaArrowAltCircleRight ref={scrollContainer} className="next " onClick={nextSlide} />
+          </SliderIcon>
         </SliderAlign>
       </SliderHeader>
 
       <div className="marque_sneakers_slider">
-        <FaArrowAltCircleLeft className="prev" onClick={prevSlide} />
         <SliderSizeForSlide ref={scrollContainer}>
           {sneaker.map((sneaker) => (
             <CardSneaker key={sneaker.id}>
@@ -61,15 +62,15 @@ function MarqueSneakersSlider({ marque }) {
                 <PriceSneaker>
                   {sneaker.price}
                   {' '}
-                  $
+                  €
                 </PriceSneaker>
               </AlignInfoSneaker>
             </CardSneaker>
           ))}
         </SliderSizeForSlide>
-        <FaArrowAltCircleRight ref={scrollContainer} className="next" onClick={nextSlide} />
 
       </div>
+
     </div>
 
   );

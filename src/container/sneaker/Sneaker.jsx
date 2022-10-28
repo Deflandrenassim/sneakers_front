@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Textfield } from './textfield/Textfield';
-import Button from './button/Button';
-import Picture from './picture/Picture';
-import Comment from '../container/comment/Comment';
+import { Textfield } from '../../component/textfield/Textfield';
+import Button from '../../component/button/Button';
+import Picture from '../../component/picture/Picture';
+import ContainerInfo from '../../component/containerInfoSneakers/ContainerInfo';
+import Comment from './Comment';
 
 function Sneaker() {
   const { id } = useParams();
@@ -40,8 +41,9 @@ function Sneaker() {
   };
 
   return (
-    <div className="comment">
-      <Picture source={picture} />
+    <div className="sneaker_header">
+      <Picture pictureComment="pictureComment" source={picture} />
+      <ContainerInfo />
       <span> Name : </span>
       <Textfield value={newName} onChange={UpdateSend} />
       <Button onClick={sendUpdateComment}> Envoyer </Button>

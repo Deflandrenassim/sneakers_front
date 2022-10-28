@@ -1,8 +1,8 @@
 .card_sneaker{
-    padding-left: 10px;
-    padding-right: 10px;
     display: flex;
     flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
     flex-wrap: wrap;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 2px;
@@ -14,14 +14,13 @@
 }
 .name_sneaker{
    font-size: 20px;
-    
 }
 .price_sneaker{
     font-size: 20px;
-    padding-left: 10px;
+   padding-left: 80px;
 }
 .align_info{
-    display: flex;
+    display:flex;
     margin: 10px;
-    justify-content: space-between;
+    
 }

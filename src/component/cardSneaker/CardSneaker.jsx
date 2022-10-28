@@ -17,9 +17,7 @@ export function PictureSneaker({ src }) {
 export function AlignInfoSneaker({ children }) {
   return (
     <div className="align_info">
-      {' '}
       {children}
-      {' '}
     </div>
   );
 }

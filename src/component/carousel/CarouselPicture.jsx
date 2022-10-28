@@ -1,13 +1,10 @@
-import React from 'react'
+import React from 'react';
 import './Carousel.css';
 
-const CarouselPicture = ({ chidlren, src }) => {
+function CarouselPicture({ src }) {
+  return (
+    <img className="carousel_picture" src={src} alt="sneak " />
 
-    return (
-        <img className='carousel_picture' src={src} alt='sneak' >
-            {chidlren}
-        </img >
-
-    )
+  );
 }
-export default CarouselPicture; 
+export default CarouselPicture;

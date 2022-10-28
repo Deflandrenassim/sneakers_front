@@ -1,16 +1,29 @@
 .slider {
     padding-top: 30px;
     display: flex;
-    justify-content: center;
     position: relative;
-    align-items: center;
+    
+}
+.slider:focus {
+    outline: none !important;
+    border: 0;
 }
 
 .carousel_picture {
-    height: 500px;
-    width: 1720px;
+    display: flex;
+    justify-content: center;
+    height: 8%;
+    width: 50%;
     border-radius: 10px;
+    outline : none;
+    border : 0;
+
 }
+.picture_center{
+    display:flex;
+    justify-content: center;
+}
+
 
 .right-arrow {
     position: absolute;
@@ -38,7 +51,13 @@
 }
 
 .slide.active {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 5%;
+    width: 60%;
+    height: 10%;
     opacity: 1;
     transition-duration: 1s ease;
     transform: scale(1.08);
+    user-select: none;
 }

@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Sneakers.css';
 import { Link } from 'react-router-dom';
-import { Textfield } from '../component/textfield/Textfield';
-import {
-  CardSneaker, NameSneaker, PictureSneaker, PriceSneaker,
-} from '../component/cardSneaker/CardSneaker';
+import { Textfield } from '../../component/textfield/Textfield';
 
 export default function Sneakers() {
   const [marque, setMarque] = useState();
@@ -14,6 +10,7 @@ export default function Sneakers() {
   const [price, setPrice] = useState();
   const [comment, setComment] = useState([]);
   const [picture, setPicture] = useState();
+  const [matiere, setMatiere] = useState();
 
   useEffect(() => {
     axios.get('http://localhost:8080/sneakers/')
@@ -24,7 +21,7 @@ export default function Sneakers() {
 
   const sendComment = () => {
     axios.post('http://localhost:8080/sneakers', {
-      price, marque, size, name, picture,
+      price, marque, size, name, picture, matiere,
     })
       .then((response) => {
         console.log(response);
@@ -34,6 +31,9 @@ export default function Sneakers() {
   const handleName = (event) => {
     setName(event);
   };
+  const handleMatiere = (event) => {
+    setMatiere(event);
+  };
   const handleMarque = (event) => {
     setMarque(event);
   };
@@ -41,6 +41,7 @@ export default function Sneakers() {
   const handleSize = (event) => {
     setSize(event);
   };
+
   const handlePrice = (event) => {
     setPrice(event);
   };
@@ -51,26 +52,27 @@ export default function Sneakers() {
   return (
 
     <div className="App">
-
       <div className="container_card_sneakers">
         {comment.map((commentaire) => (
-          <CardSneaker key={commentaire.id}>
+          <div key={commentaire.id}>
             <Link to={`/comment/${commentaire.id}`}>
-              <PictureSneaker src={commentaire.picture} />
-              <NameSneaker>{commentaire.name}</NameSneaker>
-              <PriceSneaker>
+              <img src={commentaire.picture} alt="bg sneakers" />
+              <span>{commentaire.name}</span>
+              <span>
                 {commentaire.price}
                 {' '}
                 €
-              </PriceSneaker>
+              </span>
             </Link>
-          </CardSneaker>
+          </div>
         ))}
       </div>
 
       <Textfield value={name} onChange={handleName} placeholder="Name" />
 
       <Textfield value={marque} onChange={handleMarque} placeholder="Marque" />
+
+      <Textfield value={matiere} onChange={handleMatiere} placeholder="Matiere" />
 
       <Textfield value={size} onChange={handleSize} placeholder="Size" />
 

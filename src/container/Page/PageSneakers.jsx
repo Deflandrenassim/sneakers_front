@@ -1,10 +1,10 @@
-import React from 'react'
-import Sneakers from '../Sneakers'
+import React from 'react';
+import Sneakers from '../sneakers_all/Sneakers';
 
 export default function PageSneakers() {
-    return (
-        <div>
-            <Sneakers />
-        </div>
-    )
+  return (
+    <div>
+      <Sneakers />
+    </div>
+  );
 }
