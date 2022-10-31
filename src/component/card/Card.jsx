@@ -1,20 +1,20 @@
 import React from 'react';
-import './CardSneaker.css';
+import './Card.css';
 
-export function CardSneaker({ children }) {
+export function Card({ children }) {
   return (
     <div className="card_sneaker">
       {children}
     </div>
   );
 }
-export function PictureSneaker({ src }) {
+export function Picture({ src }) {
   return (
     <img className="picture_sneaker" src={src} alt="sneaker" />
 
   );
 }
-export function AlignInfoSneaker({ children }) {
+export function AlignInfo({ children }) {
   return (
     <div className="align_info">
       {children}
@@ -22,17 +22,17 @@ export function AlignInfoSneaker({ children }) {
   );
 }
 
-export function NameSneaker({ children }) {
+export function Name({ children }) {
   return (
     <span className="name_sneaker">
       {children}
     </span>
   );
 }
-export function PriceSneaker({ children }) {
+export function Price({ children }) {
   return (
     <span className="price_sneaker">
-      {children }
+      {children}
     </span>
   );
 }

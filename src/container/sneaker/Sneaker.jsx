@@ -5,20 +5,29 @@ import axios from 'axios';
 import { Textfield } from '../../component/textfield/Textfield';
 import Button from '../../component/button/Button';
 import Picture from '../../component/picture/Picture';
-import ContainerInfo from '../../component/containerInfoSneakers/ContainerInfo';
+import {
+  ContainerInfo, ContainerHeaderInfo, ContainerLinkShop, ContainerPrice, ContainerSize,
+  ContainerMatiere,
+} from '../../component/containerInfoSneakers/ContainerInfo';
 import Comment from './Comment';
 
 function Sneaker() {
   const { id } = useParams();
+  const [marque, setMarque] = useState();
   const [newName, setNewName] = useState();
   const [picture, setPicture] = useState();
+  const [price, setPrice] = useState();
+  const [size, setSize] = useState();
 
   useEffect(() => {
     axios.get(`http://localhost:8080/sneakers/${id}`)
       .then((response) => {
         console.log(response);
+        setMarque(response.data.marque.toUpperCase());
         setNewName(response.data.name);
         setPicture(response.data.picture);
+        setPrice(response.data.price);
+        setSize(response.data.size);
       });
   }, []);
 
@@ -46,7 +55,13 @@ function Sneaker() {
     <div className="sneaker">
       <div className="sneaker_header">
         <Picture pictureComment="pictureComment" source={picture} />
-        <ContainerInfo />
+        <ContainerInfo>
+          <ContainerHeaderInfo info={newName} marque={marque} />
+          <ContainerPrice price={price} />
+          <ContainerSize size={size} />
+          <ContainerMatiere />
+          <ContainerLinkShop />
+        </ContainerInfo>
       </div>
       <span> Name : </span>
       <Textfield value={newName} onChange={UpdateSend} />

@@ -3,10 +3,10 @@ import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Inscription from './container/Connect/Inscription';
 import Login from './container/Connect/Login';
-import { Header } from './component/header/Header';
+import { Header } from './container/header/Header';
 import PageSneakers from './container/Page/PageSneakers';
 import PageHome from './container/Page/PageHome';
-import Footer from './component/footer/Footer';
+import Footer from './container/footer/Footer';
 import PageComment from './container/Page/PageComment';
 
 function App() {
@@ -16,7 +16,6 @@ function App() {
 
         <Header />
         <div className="container">
-
           <Routes>
             <Route exact path="/comment/:id" element={<PageComment />} />
             <Route exact path="/sneakers" element={<PageSneakers />} />
@@ -24,7 +23,6 @@ function App() {
             <Route exact path="/inscription" element={<Inscription />} />
             <Route exact path="/login" element={<Login />} />
           </Routes>
-
         </div>
         <Footer />
 
