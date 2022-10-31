@@ -6,8 +6,8 @@ import { Textfield } from '../../component/textfield/Textfield';
 import Button from '../../component/button/Button';
 import Picture from '../../component/picture/Picture';
 import {
-  ContainerInfo, ContainerHeaderInfo, ContainerLinkShop, ContainerPrice, ContainerSize,
-  ContainerMatiere,
+  ContainerInfo, ContainerHeaderInfo, ContainerPrice, ContainerSize,
+  ContainerMatiere, ContainerLinkShop, ContainerFooterInfo,
 } from '../../component/containerInfoSneakers/ContainerInfo';
 import Comment from './Comment';
 
@@ -61,6 +61,10 @@ function Sneaker() {
           <ContainerSize size={size} />
           <ContainerMatiere />
           <ContainerLinkShop />
+          <ContainerFooterInfo>
+            <Button> Jaime </Button>
+            <Button> Jaime Pas </Button>
+          </ContainerFooterInfo>
         </ContainerInfo>
       </div>
       <span> Name : </span>

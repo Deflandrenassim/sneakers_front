@@ -21,6 +21,13 @@ export function ContainerHeaderInfo({ children, info, marque }) {
     </div>
   );
 }
+export function ContainerFooterInfo({ children }) {
+  return (
+    <div className="container_footer_info">
+      {children}
+    </div>
+  );
+}
 export function ContainerPrice({ children, price }) {
   return (
     <div className="container_price">

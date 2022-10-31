@@ -2,6 +2,7 @@
     background-color: antiquewhite;
     padding-left: 10px;
     width: 50%;
+    position: relative;
 }
 
 .container_header_info {
@@ -9,6 +10,13 @@
     justify-content: space-between;
     align-items: center;
 
+}
+
+.container_footer_info {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 90%;
 }
 
 .info {
