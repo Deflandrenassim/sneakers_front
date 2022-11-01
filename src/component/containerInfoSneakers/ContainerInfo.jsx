@@ -11,10 +11,10 @@ export function ContainerInfo({ children }) {
 export function ContainerHeaderInfo({ children, info, marque }) {
   return (
     <div className="container_header_info">
-      <span className="info">
+      <span className="container_info">
         {info}
       </span>
-      <span className="marque">
+      <span className="container_marque">
         {marque}
       </span>
       {children}
@@ -32,9 +32,8 @@ export function ContainerPrice({ children, price }) {
   return (
     <div className="container_price">
       <span>
-        price :
-        {' '}
         {price}
+        {' '}
         €
       </span>
       {children}
@@ -43,7 +42,7 @@ export function ContainerPrice({ children, price }) {
 }
 export function ContainerSize({ children, size }) {
   return (
-    <div>
+    <div className="container_size">
       <span>
         Size :
         {' '}

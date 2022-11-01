@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './Sneaker.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Textfield } from '../../component/textfield/Textfield';
 import Button from '../../component/button/Button';
 import Picture from '../../component/picture/Picture';
 import {
@@ -31,25 +30,25 @@ function Sneaker() {
       });
   }, []);
 
-  const UpdateSend = (name) => {
-    setNewName(name);
-  };
+  // const UpdateSend = (name) => {
+  //   setNewName(name);
+  // };
 
-  const sendUpdateComment = () => {
-    axios.put(`http://localhost:8080/sneakers/${id}`, {
-      newName,
-    })
-      .then((response) => {
-        console.log(response);
-      });
-  };
+  // const sendUpdateComment = () => {
+  //   axios.put(`http://localhost:8080/sneakers/${id}`, {
+  //     newName,
+  //   })
+  //     .then((response) => {
+  //       console.log(response);
+  //     });
+  // };
 
-  const deleteComment = () => {
-    axios.delete(`http://localhost:8080/sneakers/${id}`)
-      .then((response) => {
-        console.log(response);
-      });
-  };
+  // const deleteComment = () => {
+  //   axios.delete(`http://localhost:8080/sneakers/${id}`)
+  //     .then((response) => {
+  //       console.log(response);
+  //     });
+  // };
 
   return (
     <div className="sneaker">
@@ -62,15 +61,11 @@ function Sneaker() {
           <ContainerMatiere />
           <ContainerLinkShop />
           <ContainerFooterInfo>
-            <Button> Jaime </Button>
-            <Button> Jaime Pas </Button>
+            <Button appareanceLike="appareanceLike"> Jaime </Button>
+            <Button appareanceDisLike="appareanceDisLike"> Jaime Pas </Button>
           </ContainerFooterInfo>
         </ContainerInfo>
       </div>
-      <span> Name : </span>
-      <Textfield value={newName} onChange={UpdateSend} />
-      <Button onClick={sendUpdateComment}> Envoyer </Button>
-      <Button onClick={deleteComment}> Supprimer </Button>
       <Comment />
     </div>
   );

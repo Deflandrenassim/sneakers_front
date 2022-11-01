@@ -2,10 +2,11 @@ import React from 'react';
 import './Textfield.css';
 
 export function Textfield({
-  onChange, placeholder, value,
+  onChange, placeholder, value, appareanceComment,
 }) {
   return (
     <input
+      className={`textfield ${appareanceComment}`}
       type="text"
       onChange={(ev) => onChange(ev.currentTarget.value)}
       placeholder={placeholder}

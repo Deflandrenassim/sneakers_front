@@ -9,20 +9,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .container_footer_info {
     display: flex;
-    justify-content: flex-end;
     position: absolute;
     top: 90%;
+    right: 50%;
+    left: 50%;
 }
 
-.info {
+.container_price {
+    padding-top: 10px;
+    font-size: 30px;
+}
+
+.container_info {
     font-size: 40px;
 }
 
-.marque {
+.container_size {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.container_marque {
     font-size: 40px;
 }
