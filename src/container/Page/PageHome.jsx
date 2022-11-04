@@ -7,7 +7,7 @@ export default function PageHome() {
     <div>
       <Carousel />
       <MarqueSneakersSlider marque="Nike" title="Nike" />
-      <MarqueSneakersSlider marque="Adidas" title="Adidas" />
+      <MarqueSneakersSlider marque="Adidas" />
     </div>
   );
 }

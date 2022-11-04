@@ -21,7 +21,6 @@ function Sneaker() {
   useEffect(() => {
     axios.get(`http://localhost:8080/sneakers/${id}`)
       .then((response) => {
-        console.log(response);
         setMarque(response.data.marque.toUpperCase());
         setNewName(response.data.name);
         setPicture(response.data.picture);
@@ -29,26 +28,6 @@ function Sneaker() {
         setSize(response.data.size);
       });
   }, []);
-
-  // const UpdateSend = (name) => {
-  //   setNewName(name);
-  // };
-
-  // const sendUpdateComment = () => {
-  //   axios.put(`http://localhost:8080/sneakers/${id}`, {
-  //     newName,
-  //   })
-  //     .then((response) => {
-  //       console.log(response);
-  //     });
-  // };
-
-  // const deleteComment = () => {
-  //   axios.delete(`http://localhost:8080/sneakers/${id}`)
-  //     .then((response) => {
-  //       console.log(response);
-  //     });
-  // };
 
   return (
     <div className="sneaker">
