@@ -1,59 +1,57 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useSneakersInfo from '../../hooks/useSneakersInfo';
 import { Textfield } from '../../component/textfield/Textfield';
 
-export default function Sneakers() {
-  const [marque, setMarque] = useState();
-  const [name, setName] = useState();
-  const [size, setSize] = useState();
-  const [price, setPrice] = useState();
-  const [comment, setComment] = useState([]);
-  const [picture, setPicture] = useState();
-  const [matiere, setMatiere] = useState();
+const useForm = () => {
+  const [form, setForm] = useState({});
+  const updateValue = (name, value) => {
+    setForm({ ...form, [name]: value });
+  };
+  return { form, updateValue };
+};
 
-  useEffect(() => {
-    axios.get('http://localhost:8080/sneakers/')
-      .then((response) => {
-        setComment(response.data);
-      });
-  }, []);
+export default function Sneakers() {
+  const sneakers = useSneakersInfo();
+  const {
+    form: {
+      marque, name, size, price, comment, picture, matiere,
+    }, updateValue,
+  } = useForm();
 
   const sendComment = () => {
     axios.post('http://localhost:8080/sneakers', {
-      price, marque, size, name, picture, matiere,
+      marque, name, size, price, comment, picture, matiere,
     })
       .then((response) => {
         console.log(response);
       });
   };
-
   const handleName = (event) => {
-    setName(event);
+    updateValue('name', event);
   };
   const handleMatiere = (event) => {
-    setMatiere(event);
+    updateValue('matiere', event);
   };
   const handleMarque = (event) => {
-    setMarque(event);
+    updateValue('marque', event);
   };
-
   const handleSize = (event) => {
-    setSize(event);
+    updateValue('size', event);
   };
-
   const handlePrice = (event) => {
-    setPrice(event);
+    updateValue('price', event);
   };
   const handlePicture = (event) => {
-    setPicture(event);
+    updateValue('picture', event);
   };
 
   return (
 
     <div className="App">
       <div className="container_card_sneakers">
-        {comment.map((commentaire) => (
+        {sneakers.map((commentaire) => (
           <div key={commentaire.id}>
             <Link to={`/comment/${commentaire.id}`}>
               <img src={commentaire.picture} alt="bg sneakers" />
