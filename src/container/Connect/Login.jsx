@@ -8,6 +8,7 @@ function Login() {
   const [verificationMail, setVerificationMail] = useState();
   const [verificationPassword, setverificationPassword] = useState();
   const [erreur, setErreur] = useState();
+
   const handleVerificationMail = (e) => {
     setVerificationMail(e.target.value);
   };
@@ -19,6 +20,7 @@ function Login() {
       verificationMail, verificationPassword,
     })
       .then((response) => {
+        localStorage.setItem('token', response.data.token);
         console.log(response);
       })
       .catch((error) => {
