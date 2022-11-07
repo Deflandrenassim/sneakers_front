@@ -1,24 +1,18 @@
+import React from 'react';
 import axios from 'axios';
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useSneakersInfo from '../../hooks/useSneakersInfo';
 import { Textfield } from '../../component/textfield/Textfield';
-
-const useForm = () => {
-  const [form, setForm] = useState({});
-  const updateValue = (name, value) => {
-    setForm({ ...form, [name]: value });
-  };
-  return { form, updateValue };
-};
+import useForm from '../../hooks/useForm';
 
 export default function Sneakers() {
   const sneakers = useSneakersInfo();
+  const form = useForm();
   const {
     form: {
       marque, name, size, price, comment, picture, matiere,
     }, updateValue,
-  } = useForm();
+  } = form;
 
   const sendComment = () => {
     axios.post('http://localhost:8080/sneakers', {
