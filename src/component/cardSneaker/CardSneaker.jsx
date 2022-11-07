@@ -14,9 +14,9 @@ export function PictureSneaker({ src }) {
 
   );
 }
-export function AlignInfoSneaker({ children }) {
+export function AlignInfoSneaker({ children, sneakers }) {
   return (
-    <div className="align_info">
+    <div className={`align_info ${sneakers}`}>
       {children}
     </div>
   );

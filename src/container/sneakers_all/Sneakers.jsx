@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Sneakers.css';
 import { Link } from 'react-router-dom';
 import { Textfield } from '../../component/textfield/Textfield';
+import {
+  PictureSneaker, NameSneaker, AlignInfoSneaker, PriceSneaker,
+} from '../../component/cardSneaker/CardSneaker';
 
 export default function Sneakers() {
   const [marque, setMarque] = useState();
@@ -52,19 +56,24 @@ export default function Sneakers() {
   return (
 
     <div className="App">
-      <div className="container_card_sneakers">
+
+      <div className="container_wrap">
         {comment.map((commentaire) => (
-          <div key={commentaire.id}>
-            <Link to={`/comment/${commentaire.id}`}>
-              <img src={commentaire.picture} alt="bg sneakers" />
-              <span>{commentaire.name}</span>
-              <span>
-                {commentaire.price}
-                {' '}
-                €
-              </span>
-            </Link>
-          </div>
+          <Link to={`/comment/${commentaire.id}`}>
+            <div key={commentaire.id}>
+              <PictureSneaker src={commentaire.picture} alt="bg sneakers" />
+              <AlignInfoSneaker>
+                <NameSneaker>{commentaire.name}</NameSneaker>
+                <PriceSneaker>
+                  Prix :
+                  {' '}
+                  {commentaire.price}
+                  {' '}
+                  €
+                </PriceSneaker>
+              </AlignInfoSneaker>
+            </div>
+          </Link>
         ))}
       </div>
 

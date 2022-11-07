@@ -12,6 +12,7 @@
     height: 200px;
     width: 300px;
 }
+
 .name_sneaker{
    font-size: 20px;
 }
@@ -23,4 +24,8 @@
     display:flex;
     margin: 10px;
     
+}
+.align_info.sneakers{
+    display: flex;
+    flex-direction: column;
 }
