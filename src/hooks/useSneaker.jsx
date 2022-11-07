@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 
-export default function useSneaker() {
-  const { id } = useParams();
+export default function useSneaker(id) {
   const [sneaker, setSneaker] = useState({});
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/sneakers/${id}`)
-      .then((response) => {
-        console.log(response.data);
-        setSneaker(response.data);
-      });
-  }, []);
+    if (id) {
+      axios.get(`http://localhost:8080/sneakers/${id}`)
+        .then((response) => {
+          console.log(response.data);
+          setSneaker(response.data);
+        });
+    }
+  }, [id]);
 
   return sneaker;
 }

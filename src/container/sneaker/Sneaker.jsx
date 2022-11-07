@@ -1,5 +1,6 @@
 import React from 'react';
 import './Sneaker.css';
+import { useParams } from 'react-router-dom';
 import Button from '../../component/button/Button';
 import Picture from '../../component/picture/Picture';
 import useSneaker from '../../hooks/useSneaker';
@@ -10,13 +11,12 @@ import {
 import Comment from './Comment';
 
 function Sneaker() {
-  const sneaker = useSneaker();
-  console.log(sneaker.picture);
+  const { id } = useParams();
+  const sneaker = useSneaker(id);
 
   return (
     <div className="sneaker">
       <div className="sneaker_header">
-
         <Picture pictureComment="pictureComment" source={sneaker.picture} />
         <ContainerInfo>
           <ContainerHeaderInfo info={sneaker.newName} marque={sneaker.marque} />
