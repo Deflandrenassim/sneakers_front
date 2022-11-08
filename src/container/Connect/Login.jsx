@@ -3,11 +3,13 @@ import axios from 'axios';
 import Button from '../../component/button/Button';
 import './Login.css';
 import { EmailField, PasswordField } from '../../component/textfield/Textfield';
+import useToken from '../../authContext/useToken';
 
 function Login() {
   const [verificationMail, setVerificationMail] = useState();
   const [verificationPassword, setverificationPassword] = useState();
   const [erreur, setErreur] = useState();
+  const { enregisterToken } = useToken();
 
   const handleVerificationMail = (e) => {
     setVerificationMail(e.target.value);
@@ -20,8 +22,7 @@ function Login() {
       verificationMail, verificationPassword,
     })
       .then((response) => {
-        localStorage.setItem('token', response.data.token);
-        console.log(response);
+        enregisterToken('token', response.data.token);
       })
       .catch((error) => {
         setErreur(error.response.data.message);
