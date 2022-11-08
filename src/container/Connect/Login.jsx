@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../component/button/Button';
 import './Login.css';
 import { EmailField, PasswordField } from '../../component/textfield/Textfield';
@@ -10,6 +11,7 @@ function Login() {
   const [verificationPassword, setverificationPassword] = useState();
   const [erreur, setErreur] = useState();
   const { enregisterToken } = useToken();
+  const navigate = useNavigate();
 
   const handleVerificationMail = (e) => {
     setVerificationMail(e.target.value);
@@ -23,6 +25,7 @@ function Login() {
     })
       .then((response) => {
         enregisterToken('token', response.data.token);
+        navigate('/');
       })
       .catch((error) => {
         setErreur(error.response.data.message);
