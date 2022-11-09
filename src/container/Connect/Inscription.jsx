@@ -1,19 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Inscription.css';
 import axios from 'axios';
 import {
   Textfield, EmailField, PasswordField, NumberField,
 } from '../../component/textfield/Textfield';
+import useInscription from '../../hooks/useInscription';
 import Button from '../../component/button/Button';
 
 function Inscription() {
-  const [lastName, setLastName] = useState();
-  const [firstName, setFirstName] = useState();
-  const [mail, setMail] = useState();
-  const [number, setNumber] = useState();
-  const [password, setPassword] = useState();
-  const [passwordDouble, setPasswordDouble] = useState();
-  const [erreur, setErreur] = useState();
+  const {
+    lastName,
+    setLastName,
+    firstName,
+    setFirstName,
+    mail,
+    setMail,
+    number,
+    setNumber,
+    password,
+    setPassword,
+    passwordDouble,
+    setPasswordDouble,
+    erreur,
+    setErreur,
+  } = useInscription();
 
   const handleLastName = (name) => {
     setLastName(name);

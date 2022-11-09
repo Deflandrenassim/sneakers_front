@@ -6,11 +6,9 @@ import './Login.css';
 import { EmailField, PasswordField } from '../../component/textfield/Textfield';
 
 function Login() {
-  const [verificationMail, setVerificationMail] = useState('');
-  const [verificationPassword, setverificationPassword] = useState('');
+  const [verificationMail, setVerificationMail] = useState();
+  const [verificationPassword, setverificationPassword] = useState();
   const [erreur, setErreur] = useState();
-  const [, setToken] = useState();
-  const navigate = useNavigate();
 
   const handleVerificationMail = (e) => {
     setVerificationMail(e.target.value);
@@ -26,9 +24,6 @@ function Login() {
     })
       .then((response) => {
         console.log(response.data);
-        setToken(response.data.token);
-        if (response.data.token) {
-          navigate('/');
         }
       })
       .catch((error) => {
