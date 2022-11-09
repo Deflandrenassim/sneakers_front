@@ -6,6 +6,7 @@ import Logo from '../../images/Logo.png';
 export function Header() {
   return (
     <div className="header">
+
       <div className="contain_lign">
         <HeaderLogo />
         <div className="link_position">
@@ -15,8 +16,8 @@ export function Header() {
           <HeaderConnect />
         </div>
       </div>
-    </div>
 
+    </div>
   );
 }
 export function HeaderLogo({ children }) {
@@ -27,6 +28,7 @@ export function HeaderLogo({ children }) {
     </div>
   );
 }
+
 export function HeaderLink({ children }) {
   return (
     <div className="header_link">

@@ -24,7 +24,9 @@ function App() {
             <Route exact path="/login" element={<Login />} />
           </Routes>
         </div>
-        <Footer />
+        <div className="footer">
+          <Footer />
+        </div>
 
       </BrowserRouter>
     </div>
