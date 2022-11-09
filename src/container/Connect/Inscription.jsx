@@ -1,13 +1,18 @@
 import React from 'react';
 import './Inscription.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import {
   Textfield, EmailField, PasswordField, NumberField,
 } from '../../component/textfield/Textfield';
 import useInscription from '../../hooks/useInscription';
 import Button from '../../component/button/Button';
 
+const setToken = (value) => {
+  localStorage.setItem('token', value);
+};
 function Inscription() {
+  const navigate = useNavigate();
   const {
     lastName,
     setLastName,
@@ -49,7 +54,8 @@ function Inscription() {
       lastName, firstName, mail, number, password, passwordDouble,
     })
       .then((response) => {
-        console.log(response);
+        setToken(response.data.token);
+        navigate('/');
       })
       .catch((error) => {
         setErreur(error.response.data.message);
