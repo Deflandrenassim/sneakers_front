@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Textfield } from '../../component/textfield/Textfield';
 import Button from '../../component/button/Button';
 
@@ -16,11 +16,16 @@ export default function Comment() {
       comment,
     });
   };
+  useEffect(() => {
+    axios.get('http://localhost:8080/sneakers/:id')
+      .then((response) => {
+        console.log(response);
+      });
+  });
 
   return (
-    <div>
-      <span> commentaire : </span>
-      <Textfield onChange={handleComment} />
+    <div className="comment">
+      <Textfield onChange={handleComment} placeholder="Ajouter un Commentaire" />
       <Button onClick={postComment}> Envoi </Button>
     </div>
   );

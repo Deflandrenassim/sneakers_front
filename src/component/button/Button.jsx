@@ -1,8 +1,11 @@
 import React from 'react';
+import './Button.css';
 
-function Button({ children, onClick }) {
+function Button({
+  children, onClick, appareanceLike, appareanceDisLike,
+}) {
   return (
-    <button type="button" onClick={onClick}>
+    <button className={`btn ${appareanceLike} ${appareanceDisLike}`} type="button" onClick={onClick}>
       {children}
     </button>
   );

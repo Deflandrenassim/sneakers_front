@@ -1,57 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Sneaker.css';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import { Textfield } from '../../component/textfield/Textfield';
 import Button from '../../component/button/Button';
 import Picture from '../../component/picture/Picture';
-import ContainerInfo from '../../component/containerInfoSneakers/ContainerInfo';
+import useSneaker from '../../hooks/useSneaker';
+import {
+  ContainerInfo, ContainerHeaderInfo, ContainerPrice, ContainerMatiere, ContainerLinkShop,
+  ContainerFooterInfo, ContainerSize,
+} from '../../component/containerInfoSneakers/ContainerInfo';
 import Comment from './Comment';
 
 function Sneaker() {
   const { id } = useParams();
-  const [newName, setNewName] = useState();
-  const [picture, setPicture] = useState();
-
-  useEffect(() => {
-    axios.get(`http://localhost:8080/sneakers/${id}`)
-      .then((response) => {
-        console.log(response);
-        setNewName(response.data.name);
-        setPicture(response.data.picture);
-      });
-  }, []);
-
-  const UpdateSend = (name) => {
-    setNewName(name);
-  };
-
-  const sendUpdateComment = () => {
-    axios.put(`http://localhost:8080/sneakers/${id}`, {
-      newName,
-    })
-      .then((response) => {
-        console.log(response);
-      });
-  };
-
-  const deleteComment = () => {
-    axios.delete(`http://localhost:8080/sneakers/${id}`)
-      .then((response) => {
-        console.log(response);
-      });
-  };
+  const sneaker = useSneaker(id);
 
   return (
     <div className="sneaker">
       <div className="sneaker_header">
-        <Picture pictureComment="pictureComment" source={picture} />
-        <ContainerInfo />
+        <Picture pictureComment="pictureComment" source={sneaker.picture} />
+        <ContainerInfo>
+          <ContainerHeaderInfo info={sneaker.newName} marque={sneaker.marque} />
+          <ContainerPrice price={sneaker.price} />
+          <ContainerSize size={sneaker.size} />
+          <ContainerMatiere />
+          <ContainerLinkShop />
+          <ContainerFooterInfo>
+            <Button appareanceLike="appareanceLike"> Jaime </Button>
+            <Button appareanceDisLike="appareanceDisLike"> Jaime Pas </Button>
+          </ContainerFooterInfo>
+        </ContainerInfo>
+
       </div>
-      <span> Name : </span>
-      <Textfield value={newName} onChange={UpdateSend} />
-      <Button onClick={sendUpdateComment}> Envoyer </Button>
-      <Button onClick={deleteComment}> Supprimer </Button>
       <Comment />
     </div>
   );

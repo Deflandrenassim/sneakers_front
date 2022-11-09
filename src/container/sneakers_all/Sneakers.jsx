@@ -1,79 +1,63 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 import './Sneakers.css';
 import { Link } from 'react-router-dom';
+import useSneakersInfo from '../../hooks/useSneakersInfo';
 import { Textfield } from '../../component/textfield/Textfield';
-import {
-  PictureSneaker, NameSneaker, AlignInfoSneaker, PriceSneaker,
-} from '../../component/cardSneaker/CardSneaker';
+import useForm from '../../hooks/useForm';
 
 export default function Sneakers() {
-  const [marque, setMarque] = useState();
-  const [name, setName] = useState();
-  const [size, setSize] = useState();
-  const [price, setPrice] = useState();
-  const [comment, setComment] = useState([]);
-  const [picture, setPicture] = useState();
-  const [matiere, setMatiere] = useState();
-
-  useEffect(() => {
-    axios.get('http://localhost:8080/sneakers/')
-      .then((response) => {
-        setComment(response.data);
-      });
-  }, []);
+  const sneakers = useSneakersInfo();
+  const form = useForm();
+  const {
+    form: {
+      marque, name, size, price, comment, picture, matiere,
+    }, updateValue,
+  } = form;
 
   const sendComment = () => {
     axios.post('http://localhost:8080/sneakers', {
-      price, marque, size, name, picture, matiere,
+      marque, name, size, price, comment, picture, matiere,
     })
       .then((response) => {
         console.log(response);
       });
   };
-
   const handleName = (event) => {
-    setName(event);
+    updateValue('name', event);
   };
   const handleMatiere = (event) => {
-    setMatiere(event);
+    updateValue('matiere', event);
   };
   const handleMarque = (event) => {
-    setMarque(event);
+    updateValue('marque', event);
   };
-
   const handleSize = (event) => {
-    setSize(event);
+    updateValue('size', event);
   };
-
   const handlePrice = (event) => {
-    setPrice(event);
+    updateValue('price', event);
   };
   const handlePicture = (event) => {
-    setPicture(event);
+    updateValue('picture', event);
   };
 
   return (
 
     <div className="App">
-
-      <div className="container_wrap">
-        {comment.map((commentaire) => (
-          <Link to={`/comment/${commentaire.id}`}>
-            <div key={commentaire.id}>
-              <PictureSneaker src={commentaire.picture} alt="bg sneakers" />
-              <AlignInfoSneaker>
-                <NameSneaker>{commentaire.name}</NameSneaker>
-                <PriceSneaker>
-                  Prix :
-                  {' '}
-                  {commentaire.price}
-                  {' '}
-                  €
-                </PriceSneaker>
-              </AlignInfoSneaker>
-            </div>
-          </Link>
+      <div className="container_card_sneakers">
+        {sneakers.map((commentaire) => (
+          <div key={commentaire.id}>
+            <Link to={`/comment/${commentaire.id}`}>
+              <img src={commentaire.picture} alt="bg sneakers" />
+              <span>{commentaire.name}</span>
+              <span>
+                {commentaire.price}
+                {' '}
+                €
+              </span>
+            </Link>
+          </div>
         ))}
       </div>
 

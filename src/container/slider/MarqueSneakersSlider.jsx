@@ -3,8 +3,8 @@ import './Slider.css';
 import axios from 'axios';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import {
-  CardSneaker, PictureSneaker, NameSneaker, PriceSneaker, AlignInfoSneaker,
-} from '../../component/cardSneaker/CardSneaker';
+  Card, Picture, Name, Price, AlignInfo,
+} from '../../component/card/Card';
 import {
   SliderHeader, SliderTitle, SliderAlign, SliderSizeForSlide, SliderIcon,
 } from './SliderHeader';
@@ -41,7 +41,7 @@ function MarqueSneakersSlider({ marque, title }) {
       <SliderHeader>
         <SliderAlign>
           <SliderTitle>
-            {title }
+            {title}
           </SliderTitle>
           <SliderIcon>
             <FaArrowAltCircleLeft className="prev " onClick={prevSlide} />
@@ -53,19 +53,19 @@ function MarqueSneakersSlider({ marque, title }) {
       <div className="marque_sneakers_slider">
         <SliderSizeForSlide ref={scrollContainer}>
           {sneaker.map((sneaker) => (
-            <CardSneaker key={sneaker.id}>
-              <PictureSneaker src={sneaker.picture} alt="belle snkr " />
-              <AlignInfoSneaker>
-                <NameSneaker>
+            <Card key={sneaker.id}>
+              <Picture src={sneaker.picture} alt="belle snkr " />
+              <AlignInfo>
+                <Name>
                   {sneaker.name}
-                </NameSneaker>
-                <PriceSneaker>
+                </Name>
+                <Price>
                   {sneaker.price}
                   {' '}
                   €
-                </PriceSneaker>
-              </AlignInfoSneaker>
-            </CardSneaker>
+                </Price>
+              </AlignInfo>
+            </Card>
           ))}
         </SliderSizeForSlide>
 

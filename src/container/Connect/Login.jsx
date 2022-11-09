@@ -5,10 +5,9 @@ import './Login.css';
 import { EmailField, PasswordField } from '../../component/textfield/Textfield';
 
 function Login() {
-  const [verificationMail, setVerificationMail] = useState('');
-  const [verificationPassword, setverificationPassword] = useState('');
+  const [verificationMail, setVerificationMail] = useState();
+  const [verificationPassword, setverificationPassword] = useState();
   const [erreur, setErreur] = useState();
-
   const handleVerificationMail = (e) => {
     setVerificationMail(e.target.value);
   };
