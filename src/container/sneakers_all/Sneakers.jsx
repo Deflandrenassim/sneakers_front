@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './Sneakers.css';
 import { Link } from 'react-router-dom';
 import useSneakersInfo from '../../hooks/useSneakersInfo';
 import { Textfield } from '../../component/textfield/Textfield';
