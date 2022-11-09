@@ -10,27 +10,26 @@ function Login() {
   const [verificationMail, setVerificationMail] = useState();
   const [verificationPassword, setverificationPassword] = useState();
   const [erreur, setErreur] = useState();
-  const { enregisterToken } = useToken();
-  const navigate = useNavigate();
 
   const handleVerificationMail = (e) => {
     setVerificationMail(e.target.value);
   };
+
   const handleVerificationPassword = (e) => {
     setverificationPassword(e.target.value);
   };
+
   const sendVerification = () => {
     axios.post('http://localhost:8080/login/', {
       verificationMail, verificationPassword,
     })
       .then((response) => {
-        enregisterToken('token', response.data.token);
-        navigate('/');
       })
       .catch((error) => {
         setErreur(error.response.data.message);
       });
   };
+
   return (
     <div className="login">
       <EmailField value={verificationMail} onChange={handleVerificationMail} />

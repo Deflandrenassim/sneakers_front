@@ -57,6 +57,7 @@ function Inscription() {
   };
 
   return (
+
     <div className="inscription">
 
       <Textfield value={lastName} onChange={handleLastName} placeholder="nom" />
@@ -67,10 +68,10 @@ function Inscription() {
       <PasswordField value={passwordDouble} onChange={handlePasswordDouble} placeholder="Même mot de passe" />
       <span>
         {' '}
-        {erreur }
+        { erreur }
       </span>
-      <Button onClick={HandleSend}> Valider </Button>
 
+      <Button onClick={HandleSend}> Valider </Button>
     </div>
 
   );

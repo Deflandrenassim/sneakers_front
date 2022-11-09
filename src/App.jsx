@@ -12,6 +12,7 @@ import AuthProvider from './authContext/AuthProvider';
 
 function App() {
   return (
+
     <AuthProvider>
       <div className="app">
         <BrowserRouter>
@@ -29,6 +30,8 @@ function App() {
         </BrowserRouter>
       </div>
     </AuthProvider>
+
+
   );
 }
 
