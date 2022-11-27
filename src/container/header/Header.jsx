@@ -3,6 +3,7 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.png';
 import useToken from '../../authContext/useToken';
+import Button from '../../component/button/Button';
 
 export function Header() {
   return (
@@ -47,8 +48,8 @@ export function HeaderConnect({ children }) {
     <div>
       {authUser ? (
         <div className="header_connect">
-          <Link className="link" to="/inscription"> Welcome Mr Test</Link>
-          <Link className="link" to="/login"> Logout </Link>
+          <div className="name_user"> Welcome Mr Test </div>
+          <Button> Logout </Button>
           {children}
         </div>
 
