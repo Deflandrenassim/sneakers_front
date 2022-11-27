@@ -2,11 +2,11 @@ import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.png';
+import useToken from '../../authContext/useToken';
 
 export function Header() {
   return (
     <div className="header">
-
       <div className="contain_lign">
         <HeaderLogo />
         <div className="link_position">
@@ -41,11 +41,25 @@ export function HeaderLink({ children }) {
 }
 
 export function HeaderConnect({ children }) {
+  const { authUser } = useToken();
+
   return (
-    <div className="header_connect">
-      <Link className="link" to="/inscription"> Inscription </Link>
-      <Link className="link" to="/login"> Connexion </Link>
-      {children}
+    <div>
+      {authUser ? (
+        <div className="header_connect">
+          <Link className="link" to="/inscription"> Welcome Mr Test</Link>
+          <Link className="link" to="/login"> Logout </Link>
+          {children}
+        </div>
+
+      )
+        : (
+          <div className="header_connect">
+            <Link className="link" to="/inscription"> Inscription </Link>
+            <Link className="link" to="/login"> Connexion </Link>
+            {children}
+          </div>
+        )}
     </div>
   );
 }

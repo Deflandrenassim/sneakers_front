@@ -12,7 +12,7 @@ import Comment from './Comment';
 
 function Sneaker() {
   const { id } = useParams();
-  
+
   const sneaker = useSneaker(id);
 
   return (
