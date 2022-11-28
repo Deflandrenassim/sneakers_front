@@ -12,7 +12,6 @@ import AuthProvider from './authContext/AuthProvider';
 
 function App() {
   return (
-
     <AuthProvider>
       <div className="app">
         <BrowserRouter>
@@ -26,11 +25,12 @@ function App() {
               <Route exact path="/login" element={<Login />} />
             </Routes>
           </div>
-          <Footer />
+          <div className="footer">
+            <Footer />
+          </div>
         </BrowserRouter>
       </div>
     </AuthProvider>
-
   );
 }
 

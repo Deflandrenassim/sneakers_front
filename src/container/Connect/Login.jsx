@@ -4,10 +4,14 @@ import Button from '../../component/button/Button';
 import './Login.css';
 import { EmailField, PasswordField } from '../../component/textfield/Textfield';
 
+const setToken = (value) => {
+  localStorage.setItem('token', value);
+};
 function Login() {
   const [verificationMail, setVerificationMail] = useState();
   const [verificationPassword, setverificationPassword] = useState();
   const [erreur, setErreur] = useState();
+  const navigate = useNavigate();
 
   const handleVerificationMail = (e) => {
     setVerificationMail(e.target.value);
@@ -22,8 +26,6 @@ function Login() {
       verificationMail, verificationPassword,
     })
       .then((response) => {
-        console.log(response);
-      })
       .catch((error) => {
         setErreur(error.response.data.message);
       });
