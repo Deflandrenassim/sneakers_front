@@ -8,6 +8,7 @@ import { EmailField, PasswordField } from '../../component/textfield/Textfield';
 const setToken = (value) => {
   localStorage.setItem('token', value);
 };
+
 function Login() {
   const [verificationMail, setVerificationMail] = useState();
   const [verificationPassword, setverificationPassword] = useState();
@@ -28,6 +29,7 @@ function Login() {
     })
       .then((response) => {
         setToken(response.data.token);
+        console.log(response);
         navigate('/');
       })
       .catch((error) => {
