@@ -1,7 +1,7 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Inscription.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import {
   Textfield, EmailField, PasswordField, NumberField,
 } from '../../component/textfield/Textfield';
@@ -74,10 +74,11 @@ function Inscription() {
       <PasswordField value={passwordDouble} onChange={handlePasswordDouble} placeholder="Même mot de passe" />
       <span>
         {' '}
-        { erreur }
+        {erreur}
       </span>
 
       <Button onClick={HandleSend}> Valider </Button>
+      <ContainerRegister />
     </div>
 
   );

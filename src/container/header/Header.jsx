@@ -6,7 +6,6 @@ import Logo from '../../images/Logo.png';
 export function Header() {
   return (
     <div className="header">
-
       <div className="contain_lign">
         <HeaderLogo />
         <div className="link_position">
@@ -47,5 +46,6 @@ export function HeaderConnect({ children }) {
       <Link className="link" to="/login"> Connexion </Link>
       {children}
     </div>
+
   );
 }

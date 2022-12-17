@@ -8,7 +8,6 @@ export default function Comment() {
 
   const handleComment = (event) => {
     setComment(event);
-    console.log(event);
   };
 
   const postComment = () => {
@@ -21,7 +20,7 @@ export default function Comment() {
       .then((response) => {
         console.log(response);
       });
-  });
+  }, []);
 
   return (
     <div className="comment">
