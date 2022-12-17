@@ -8,7 +8,6 @@ export default function useSneaker(id) {
     if (id) {
       axios.get(`http://localhost:8080/sneakers/${id}`)
         .then((response) => {
-          console.log(response.data);
           setSneaker(response.data);
         });
     }

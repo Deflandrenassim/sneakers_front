@@ -3,6 +3,7 @@ import './Textfield.css';
 
 export function Textfield({
   onChange, placeholder, value, appareanceComment,
+
 }) {
   return (
     <input
