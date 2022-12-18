@@ -29,6 +29,7 @@ export function EmailField({
 }) {
   return (
     <input
+      className="email_field"
       type="email"
       onChange={onChange}
       value={value}
@@ -41,6 +42,7 @@ export function PasswordField({
 }) {
   return (
     <input
+      className="password_field"
       type="password"
       onChange={onChange}
       value={value}
@@ -53,6 +55,7 @@ export function NumberField({
 }) {
   return (
     <input
+      className='number_field'
       type="number"
       onChange={onChange}
       value={value}

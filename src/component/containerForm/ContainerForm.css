@@ -1,0 +1,18 @@
+.container_form {
+    display: flex;
+    padding-top: 50px;
+    height: 100%;
+}
+
+.container_picture_form {
+    width: 50%;
+}
+
+.container_register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: grey;
+}

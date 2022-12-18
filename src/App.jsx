@@ -6,7 +6,7 @@ import Login from './container/Connect/Login';
 import { Header } from './container/header/Header';
 import PageSneakers from './container/Page/PageSneakers';
 import PageHome from './container/Page/PageHome';
-// import Footer from './container/footer/Footer';
+import Footer from './container/footer/Footer';
 import PageComment from './container/Page/PageComment';
 import AuthProvider from './authContext/AuthProvider';
 
@@ -25,9 +25,9 @@ function App() {
               <Route exact path="/login" element={<Login />} />
             </Routes>
           </div>
-          {/* <div className="footer">
+          <div className="footer">
             <Footer />
-          </div> */}
+          </div>
         </BrowserRouter>
       </div>
     </AuthProvider>

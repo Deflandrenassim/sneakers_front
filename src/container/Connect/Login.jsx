@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Button from '../../component/button/Button';
 import './Login.css';
+import { Link } from 'react-router-dom';
 import { EmailField, PasswordField } from '../../component/textfield/Textfield';
-
+import { ContainerForm, ContainerPicture, ContainerRegister } from '../../component/containerForm/ContainerForm';
 function Login() {
   const [verificationMail, setVerificationMail] = useState();
   const [verificationPassword, setverificationPassword] = useState();
@@ -33,10 +34,16 @@ function Login() {
 
   return (
     <div className="login">
-      <EmailField value={verificationMail} onChange={handleVerificationMail} />
-      <PasswordField value={verificationPassword} onChange={handleVerificationPassword} />
-      <span>{erreur}</span>
-      <Button onClick={sendVerification}> Envoyer </Button>
+      <ContainerForm>
+        <ContainerPicture />
+        <ContainerRegister>
+          <EmailField value={verificationMail} onChange={handleVerificationMail} placeholder="Email" />
+          <PasswordField value={verificationPassword} onChange={handleVerificationPassword} placeholder="Password" />
+          <span>{erreur}</span>
+          <Button appareanceLike="appareanceLike" onClick={sendVerification}> Envoyer </Button>
+          <Link className="link" to="/inscription"> Créer son compte</Link>
+        </ContainerRegister>
+      </ContainerForm>
     </div>
   );
 }

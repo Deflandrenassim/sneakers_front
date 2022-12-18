@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Inscription.css';
 import axios from 'axios';
 import {
@@ -7,6 +8,7 @@ import {
 } from '../../component/textfield/Textfield';
 import useInscription from '../../hooks/useInscription';
 import Button from '../../component/button/Button';
+import { ContainerForm, ContainerRegister, ContainerPicture } from '../../component/containerForm/ContainerForm';
 
 const setToken = (value) => {
   localStorage.setItem('token', value);
@@ -65,21 +67,26 @@ function Inscription() {
   return (
 
     <div className="inscription">
+      <ContainerForm>
 
-      <Textfield value={lastName} onChange={handleLastName} placeholder="nom" />
-      <Textfield placeholder="prenom" value={firstName} onChange={handleFirstName} />
-      <EmailField placeholder="Email" value={mail} onChange={handleEmail} />
-      <NumberField placeholder="Telephone" value={number} onChange={handleNumber} />
-      <PasswordField value={password} onChange={handlePassword} placeholder="mot de passe" />
-      <PasswordField value={passwordDouble} onChange={handlePasswordDouble} placeholder="Même mot de passe" />
-      <span>
-        {' '}
-        {erreur}
-      </span>
+        <ContainerRegister>
+          <Textfield value={lastName} onChange={handleLastName} placeholder="nom" />
+          <Textfield placeholder="prenom" value={firstName} onChange={handleFirstName} />
+          <EmailField placeholder="Email" value={mail} onChange={handleEmail} />
+          <NumberField placeholder="Telephone" value={number} onChange={handleNumber} />
+          <PasswordField value={password} onChange={handlePassword} placeholder="mot de passe" />
+          <PasswordField value={passwordDouble} onChange={handlePasswordDouble} placeholder="Même mot de passe" />
+          <span>
+            {' '}
+            {erreur}
+          </span>
+          <Button appareanceLike="appareanceLike" onClick={HandleSend}> Valider </Button>
+          <Link className="link" to="/login"> Déjà un compte</Link>
+        </ContainerRegister>
+        <ContainerPicture />
 
-      <Button onClick={HandleSend}> Valider </Button>
-      <ContainerRegister />
-    </div>
+      </ContainerForm>
+    </div >
 
   );
 }

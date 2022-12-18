@@ -34,7 +34,7 @@ export default function Comment() {
       {getCommentById.map((comment) => (
         <CommentContainer>
           <div>
-            { comment.comment }
+            {comment.comment}
           </div>
         </CommentContainer>
       ))}

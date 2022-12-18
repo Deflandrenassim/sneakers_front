@@ -2,8 +2,6 @@ import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.png';
-import useToken from '../../authContext/useToken';
-import Button from '../../component/button/Button';
 
 export function Header() {
   return (
@@ -42,25 +40,13 @@ export function HeaderLink({ children }) {
 }
 
 export function HeaderConnect({ children }) {
-  const { authUser } = useToken();
+  // const { authUser } = useToken();
 
   return (
-    <div>
-      {authUser ? (
-        <div className="header_connect">
-          <div className="name_user"> Welcome Mr Test </div>
-          <Button> Logout </Button>
-          {children}
-        </div>
-
-      )
-        : (
-          <div className="header_connect">
-            <Link className="link" to="/inscription"> Inscription </Link>
-            <Link className="link" to="/login"> Connexion </Link>
-            {children}
-          </div>
-        )}
+    <div className="header_connect">
+      <Link className="link" to="/inscription"> Inscription </Link>
+      <Link className="link" to="/login"> Connexion </Link>
+      {children}
     </div>
 
   );
