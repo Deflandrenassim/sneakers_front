@@ -8,6 +8,7 @@ import useForm from '../../hooks/useForm';
 
 export default function Sneakers() {
   const sneakers = useSneakersInfo();
+  console.log(sneakers);
   const form = useForm();
   const {
     form: {
@@ -44,23 +45,28 @@ export default function Sneakers() {
 
   return (
 
-    <div className="App">
-      <div className="container_card_sneakers">
+    <div>
+
+      <div className="contains_sneakers_all">
         {sneakers.map((commentaire) => (
-          <div key={commentaire.id}>
+          <div className="card_sneakers_all" key={commentaire.id}>
             <Link to={`/comment/${commentaire.id}`}>
-              <img src={commentaire.picture} alt="bg sneakers" />
-              <span>{commentaire.name}</span>
-              <span>
-                {commentaire.price}
-                {' '}
-                €
-              </span>
+              <img className="img_sneakers_all" src={commentaire.picture} />
+              <div className="align_Info_sneakers_all">
+                <div className="name_sneakers_all">{commentaire.name}</div>
+                <div className="price_sneakers_all">
+                  {commentaire.price}
+                  {' '}
+                  €
+                </div>
+              </div>
             </Link>
           </div>
         ))}
-      </div>
 
+
+
+      </div>
       <Textfield value={name} onChange={handleName} placeholder="Name" />
 
       <Textfield value={marque} onChange={handleMarque} placeholder="Marque" />
@@ -75,5 +81,6 @@ export default function Sneakers() {
 
       <button type="button" onClick={sendComment}> Valider </button>
     </div>
+
   );
 }

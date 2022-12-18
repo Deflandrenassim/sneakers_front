@@ -1,7 +1,30 @@
+.contains_sneakers_all {
 
-.container_wrap{
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-around;
-    flex-direction: row;
+}
+
+.card_sneakers_all {
+    display: flex;
+    height: 200px;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 5px 20px rgb(126, 216, 144);
+    width: 200px;
+}
+
+.img_sneakers_all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+
+}
+
+.align_Info_sneakers_all {
+    display: flex;
+    padding: 20px;
 }

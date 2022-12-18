@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.css';
 
-export function Card({ children }) {
+export function Card({ children, }) {
   return (
     <div className="card_sneaker">
       {children}
@@ -22,7 +22,7 @@ export function AlignInfo({ children }) {
   );
 }
 
-export function Name({ children }) {
+export function Name({ children, }) {
   return (
     <span className="name_sneaker">
       {children}
