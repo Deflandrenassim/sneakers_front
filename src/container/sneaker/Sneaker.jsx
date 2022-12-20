@@ -8,7 +8,7 @@ import {
   ContainerInfo, ContainerHeaderInfo, ContainerPrice, ContainerMatiere, ContainerLinkShop,
   ContainerFooterInfo, ContainerSize,
 } from '../../component/containerInfoSneakers/ContainerInfo';
-import Comment from './Comment';
+import Comment from './comment/Comment';
 
 function Sneaker() {
   const { id } = useParams();
